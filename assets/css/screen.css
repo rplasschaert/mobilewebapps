@@ -1,0 +1,63 @@
+body{
+    color: grey;
+    text-align: center;
+    background-image: url("../media/bg.bmp");
+    background-position: top;
+    background-size: 110%;
+
+    background-repeat: no-repeat;
+}
+
+header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: groove;
+    border-color: darkgrey;
+    background-color: white;
+}
+h1, h2{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h2{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+    font-size: 25px;
+}
+
+h3{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+h3 a{
+    text-decoration: none;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+    border: groove;
+    border-color: darkgrey;
+    background-color: white;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#previous{
+    float: left;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    border-color: darkgrey;
+    border-right: groove;
+}
