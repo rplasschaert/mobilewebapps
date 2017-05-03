@@ -14,9 +14,9 @@
 </header>
 
 <h2>Far north:</h2>
-
+<button>New animal spotted!</button>
 <div id="map"></div>
-
+<button>Spotted yesterday</button>
 
 
 
@@ -29,11 +29,14 @@
             zoom: 9,
             center: uluru
         });
-//        var marker = new google.maps.Marker({
-//            position: uluru,
-//            map: map
-//        });
+
+        map.addListener('click', function (e) {
+            placeLion(e.latLng, map)
+        })
     }
+
+
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5L6CJzAgkInFCR1Ec83xySDlgwgrxWqU&callback=initMap">

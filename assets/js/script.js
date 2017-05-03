@@ -8,3 +8,12 @@
     });
 })();
 
+function placeLion(latLng, map){
+    var image = "assets/media/lion.png";
+    var marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        icon: image
+    });
+
+}
