@@ -14,7 +14,11 @@
 </header>
 
 <h2>Far north:</h2>
-<button>New animal spotted!</button>
+
+<img src="assets/media/lion.png" id="lion" class="animal">
+<img src="assets/media/elephant.png" id="elephant" class="animal">
+<img src="assets/media/rhino.png" id="rhino" class="animal">
+<img src="assets/media/leopard.png" id="leopard" class="animal">
 <div id="map"></div>
 <button>Spotted yesterday</button>
 
@@ -22,7 +26,6 @@
 
 
 <script>
-
     function initMap() {
         var uluru = {lat: -22.681880, lng: 31.170197};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -31,7 +34,7 @@
         });
 
         map.addListener('click', function (e) {
-            placeLion(e.latLng, map)
+            placeAnimal(e.latLng, map)
         })
     }
 

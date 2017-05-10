@@ -46,6 +46,11 @@ h3 a{
     background-color: white;
 }
 
+img{
+    width: 12%;
+    height: 12%;
+}
+
 
 button{
     background-color: white;
