@@ -3,7 +3,8 @@
  */
 var lastAnimalClicked = "";
 var image = "";
-
+var map = "";
+var loaded = false;
 
 (function() {
     $('#previous').on('click', function(){
@@ -18,7 +19,8 @@ var image = "";
 
 
 function curLocation(){
-    console.log('asdsad');
+
+    infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -62,10 +64,77 @@ function placeAnimal(latLng, map){
             map: map,
             icon: image
         });
-        lastAnimalClicked = "";
+        if(loaded){
+            saveIcon(lastAnimalClicked, latLng);
+        }
     }
 
 
 
+    lastAnimalClicked = "";
 
 }
+var initMap = (function(){
+    var uluru = {};
+    switch(document.title){
+        case "Far North":
+            uluru = {lat: -22.681880, lng: 31.170197};
+            break;
+        case "Northern":
+            uluru = {lat: -23.491354, lng: 31.396213};
+            break;
+        case "Central":
+            uluru = {lat: -24.219902, lng: 31.614347};
+            break;
+        case "Southern":
+            uluru = {lat: -25.062179, lng: 31.649523};
+            break;
+    }
+
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 9,
+        center: uluru
+    });
+
+    map.addListener('click', function (e) {
+        placeAnimal(e.latLng, map)
+    })
+})();
+
+
+var loadIcons = (function() {
+    $.getJSON("http://localhost:3000/animalsToday", function (data) {
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i].uluru);
+            lastAnimalClicked = data[i].type;
+            placeAnimal(data[i].uluru, map)
+        }
+        loaded = true;
+    });
+
+}());
+
+var saveIcon = function(type, latlng){
+    console.log("icon saved");
+    var animal ={
+        "type": type,
+        "uluru": latlng
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3000/animalsToday',
+        data: JSON.stringify(animal),
+        success: function (data) {
+            console.log(data);
+            location.reload()
+        },
+        error: function (ex) {
+            console.log(ex.status);
+        },
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json'
+    });
+
+};
+

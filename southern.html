@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Krugerpark Animal Spotter</title>
+    <title>Southern</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/screen.css"/>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
@@ -15,26 +15,15 @@
 
 <h2>Southern:</h2>
 
-<button>New animal spotted!</button>
+<img src="assets/media/lion.png" id="lion" class="animal">
+<img src="assets/media/elephant.png" id="elephant" class="animal">
+<img src="assets/media/rhino.png" id="rhino" class="animal">
+<img src="assets/media/leopard.png" id="leopard" class="animal">
 <div id="map"></div>
 <button>Spotted yesterday</button>
 
-<script>
 
-    function initMap() {
-        var uluru = {lat: -25.062179, lng: 31.649523};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 9,
-            center: uluru
-        });
-//        var marker = new google.maps.Marker({
-//            position: uluru,
-//            map: map
-//        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5L6CJzAgkInFCR1Ec83xySDlgwgrxWqU&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5L6CJzAgkInFCR1Ec83xySDlgwgrxWqU&callback=initMap">
 </script>
 <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
