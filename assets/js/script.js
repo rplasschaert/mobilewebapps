@@ -6,15 +6,38 @@ var image = "";
 
 
 (function() {
-    $('#previous').click(function(){
+    $('#previous').on('click', function(){
         window.history.back();
     });
     $('.animal').on('click', function(){
         lastAnimalClicked = $(this).attr('id');
         console.log('lastAnimalClicked: ' + lastAnimalClicked);
-    })
+    });
+    $('#location').on('click', curLocation)
 })();
 
+
+function curLocation(){
+    console.log('asdsad');
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
 
 function placeAnimal(latLng, map){
     switch(lastAnimalClicked){
