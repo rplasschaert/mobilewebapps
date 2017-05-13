@@ -5,6 +5,7 @@ var lastAnimalClicked = "";
 var image = "";
 var map = "";
 var loaded = false;
+var region = "";
 
 (function() {
     $('#previous').on('click', function(){
@@ -14,9 +15,13 @@ var loaded = false;
         lastAnimalClicked = $(this).attr('id');
         console.log('lastAnimalClicked: ' + lastAnimalClicked);
     });
-    $('#location').on('click', curLocation)
-})();
+    $('#location').on('click', curLocation);
+    $('.region').on('click', function(event){
+        region = event.currentTarget.id;
 
+        loadPage()
+    })
+})();
 
 function curLocation(){
 
@@ -29,9 +34,11 @@ function curLocation(){
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
+            infoWindow.setContent('Your location');
             infoWindow.open(map);
             map.setCenter(pos);
+            map.setZoom(13);
+
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -40,20 +47,22 @@ function curLocation(){
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }
+function loadPage(){
 
+}
 function placeAnimal(latLng, map){
     switch(lastAnimalClicked){
         case "lion":
-            image = "assets/media/lion-icon.png";
+            image = "media/lion-icon.png";
             break;
         case "elephant":
-            image = "assets/media/elephant-icon.png";
+            image = "media/elephant-icon.png";
             break;
         case "rhino":
-            image = "assets/media/rhino-icon.png";
+            image = "media/rhino-icon.png";
             break;
         case "leopard":
-            image = "assets/media/leopard-icon.png";
+            image = "media/leopard-icon.png";
             break;
     }
 
@@ -65,7 +74,7 @@ function placeAnimal(latLng, map){
             icon: image
         });
         if(loaded){
-            saveIcon(lastAnimalClicked, latLng);
+            saveMarker(lastAnimalClicked, latLng);
         }
     }
 
@@ -80,54 +89,48 @@ var initMap = (function(){
         case "Far North":
             uluru = {lat: -22.681880, lng: 31.170197};
             break;
-        case "Northern":
+        case "northern":
             uluru = {lat: -23.491354, lng: 31.396213};
             break;
-        case "Central":
+        case "central":
             uluru = {lat: -24.219902, lng: 31.614347};
             break;
-        case "Southern":
+        case "southern":
             uluru = {lat: -25.062179, lng: 31.649523};
             break;
     }
 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
-        center: uluru
+        center: uluru,
+        disableDefaultUI: true
     });
 
     map.addListener('click', function (e) {
         placeAnimal(e.latLng, map)
     })
 })();
-
-
 var loadIcons = (function() {
-    $.getJSON("http://localhost:3000/animalsToday", function (data) {
-        for (var i = 0; i < data.length; i++) {
-            console.log(data[i].uluru);
-            lastAnimalClicked = data[i].type;
-            placeAnimal(data[i].uluru, map)
-        }
-        loaded = true;
-    });
-
+    if(!window.title){
+        $.getJSON("http://localhost:3000/animalsToday", function (data) {
+            for (var i = 0; i < data.length; i++) {
+                lastAnimalClicked = data[i].type;
+                placeAnimal(data[i].uluru, map)
+            }
+            loaded = true;
+        });
+    }
 }());
-
-var saveIcon = function(type, latlng){
-    console.log("icon saved");
+var saveMarker = function(type, latlng){
     var animal ={
         "type": type,
         "uluru": latlng
     };
-
     $.ajax({
         type: 'POST',
         url: 'http://localhost:3000/animalsToday',
         data: JSON.stringify(animal),
         success: function (data) {
-            console.log(data);
-            location.reload()
         },
         error: function (ex) {
             console.log(ex.status);
@@ -135,6 +138,4 @@ var saveIcon = function(type, latlng){
         contentType: "application/json; charset=utf-8",
         dataType: 'json'
     });
-
 };
-
