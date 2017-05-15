@@ -2250,7 +2250,8 @@ button, input, optgroup, select, textarea {
 }
 
 button {
-    overflow: visible
+    overflow: visible;
+    margin-bottom: 3%;
 }
 
 button, select {
