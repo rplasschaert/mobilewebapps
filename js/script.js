@@ -108,11 +108,14 @@ var initMap = (function(){
     })
 })();
 var loadIcons = (function() {
+
     if(!window.title){
-        $.getJSON("http://localhost:3000/animalsToday", function (data) {
-            for (var i = 0; i < data.length; i++) {
-                lastAnimalClicked = data[i].type;
-                placeAnimal(data[i].uluru, map)
+        console.log();
+        $.getJSON("animals.json", function (data) {
+
+            for (var i = 0; i < data.animalsToday.length; i++) {
+                lastAnimalClicked = data.animalsToday[i].type;
+                placeAnimal(data.animalsToday[i].uluru, map)
             }
             loaded = true;
         });
