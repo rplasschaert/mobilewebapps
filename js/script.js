@@ -16,11 +16,7 @@ var region = "";
         console.log('lastAnimalClicked: ' + lastAnimalClicked);
     });
     $('#location').on('click', curLocation);
-    $('.region').on('click', function(event){
-        region = event.currentTarget.id;
-
-        loadPage()
-    })
+    $(".button-collapse").sideNav();
 })();
 
 function curLocation(){
@@ -85,17 +81,18 @@ function placeAnimal(latLng, map){
 }
 var initMap = (function(){
     var uluru = {};
+    console.log(document.title);
     switch(document.title){
         case "Far North":
             uluru = {lat: -22.681880, lng: 31.170197};
             break;
-        case "northern":
+        case "Northern":
             uluru = {lat: -23.491354, lng: 31.396213};
             break;
-        case "central":
+        case "Central":
             uluru = {lat: -24.219902, lng: 31.614347};
             break;
-        case "southern":
+        case "Southern":
             uluru = {lat: -25.062179, lng: 31.649523};
             break;
     }

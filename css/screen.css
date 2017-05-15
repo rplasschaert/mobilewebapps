@@ -7,46 +7,17 @@ body{
     background-size: 110%;
 
     background-repeat: no-repeat;
+
 }
 
-/*header{*/
-    /*font-family: 'Special Elite', cursive;*/
-    /*padding-top: 20px;*/
-    /*padding-bottom: 20px;*/
-    /*border: groove;*/
-    /*border-color: darkgrey;*/
-    /*background-color: white;*/
-/*}*/
-/*h1, h2{*/
-    /*font-weight: bold;*/
-    /*font-size: 18px;*/
-/*}*/
+
 
 h2{
     padding-top: 15px;
-    padding-bottom: 20px;
     color: white;
     font-size: 20px;
 }
 
-/*h3{*/
-    /*margin-top: 30px;*/
-    /*margin-bottom: 30px;*/
-    /*padding-top: 20px;*/
-    /*padding-bottom: 20px;*/
-/*}*/
-
-/*h3 a{*/
-    /*text-decoration: none;*/
-    /*color: black;*/
-    /*padding-top: 20px;*/
-    /*padding-bottom: 20px;*/
-    /*padding-left: 70px;*/
-    /*padding-right: 70px;*/
-    /*border: groove;*/
-    /*border-color: darkgrey;*/
-    /*background-color: white;*/
-/*}*/
 
 button a{
     text-decoration: none;
@@ -64,18 +35,7 @@ button{
 }
 
 #map {
-    height: 300px;
+    height: 55vh;
     width: 100%;
-    /*margin-bottom: 15px;*/
 }
 
-/*#previous{*/
-    /*float: left;*/
-    /*padding-top: 25px;*/
-    /*padding-bottom: 20px;*/
-    /*padding-left: 20px;*/
-    /*padding-right: 20px;*/
-    /*text-decoration: none;*/
-    /*border-color: darkgrey;*/
-    /*border-right: groove;*/
-/*}*/

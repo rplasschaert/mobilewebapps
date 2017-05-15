@@ -3,29 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Southern</title>
-    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/screen.css"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
 </head>
 <body>
-<div id="previous"><</div>
 <header>
-    <h1>Krugerpark Animal Spotter</h1>
+    <nav>
+        <div class="nav-wrapper white">
+            <a href="#" class="brand-logo center black-text">Krugerpark Animal Spotter</a>
+            <a href="#" data-activates="mobile" class="button-collapse black-text"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html" class="black-text">Home</a></li>
+                <li><a href="farnorth.html" class="black-text">Far north</a></li>
+                <li><a href="northern.html" class="black-text">Northern</a></li>
+                <li><a href="central.html" class="black-text">Central</a></li>
+                <li><a href="southern.html" class="black-text">Southern</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="farnorth.html">Far north</a></li>
+                <li><a href="northern.html">Northern</a></li>
+                <li><a href="central.html">Central</a></li>
+                <li><a href="southern.html">Southern</a></li>
+            </ul>
+        </div>
+
+    </nav>
 </header>
 
 <h2>Southern:</h2>
-
 <img src="media/lion.png" id="lion" class="animal">
 <img src="media/elephant.png" id="elephant" class="animal">
 <img src="media/rhino.png" id="rhino" class="animal">
 <img src="media/leopard.png" id="leopard" class="animal">
+<br>
+<button id="location">Zoom in on location</button>
+<button><a href="farnorth-y.html">Spotted yesterday</a></button>
 <div id="map"></div>
-<button>Spotted yesterday</button>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5L6CJzAgkInFCR1Ec83xySDlgwgrxWqU&callback=initMap">
-</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5L6CJzAgkInFCR1Ec83xySDlgwgrxWqU&callback=initMap"></script>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
 </body>
