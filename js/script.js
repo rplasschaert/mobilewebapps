@@ -17,6 +17,10 @@ var region = "";
     });
     $('#location').on('click', curLocation);
     $(".button-collapse").sideNav();
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+
 })();
 
 function curLocation(){
