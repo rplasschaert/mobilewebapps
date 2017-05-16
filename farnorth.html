@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
 </head>
 <body>
-<header>
+<header id="header">
     <nav>
         <div class="nav-wrapper white">
             <a href="#" class="brand-logo center black-text">Krugerpark Animal Spotter</a>
@@ -24,7 +24,7 @@
                 <li><a href="southern.html" class="black-text">Southern</a></li>
             </ul>
             <ul class="side-nav" id="mobile">
-                <li><a><i class="material-icons">menu</i>Menu</a></li>
+                <li><a disabled=""><i class="material-icons">menu</i>Menu</a></li>
                 <li><div class="divider toc"></div></li>
                 <li><a href="menu.html"><i class="material-icons">home</i>Home</a></li>
                 <li><a href="farnorth.html"><i class="material-icons">play_arrow</i>Far north</a></li>
@@ -38,11 +38,12 @@
 </header>
 
 <h2>Far north:</h2>
-<img src="media/lion.png" id="lion" class="animal">
-<img src="media/elephant.png" id="elephant" class="animal">
-<img src="media/rhino.png" id="rhino" class="animal">
-<img src="media/leopard.png" id="leopard" class="animal">
-<br>
+<div id="animalButtons"></div>
+<!--<img src="media/lion.png" id="lion" class="animal">-->
+<!--<img src="media/elephant.png" id="elephant" class="animal">-->
+<!--<img src="media/rhino.png" id="rhino" class="animal">-->
+<!--<img src="media/leopard.png" id="leopard" class="animal">-->
+<!--<br>-->
 <button id="location">Zoom in on location</button>
 <button><a href="farnorth-y.html">Spotted yesterday</a></button>
 <div id="map"></div>
