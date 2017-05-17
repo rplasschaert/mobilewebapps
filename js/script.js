@@ -7,27 +7,14 @@ var map = "";
 var loaded = false;
 var region = "";
 
-var initButtons =function(){
-    // Includes to be replaced by php
-    $('#animalButtons').load('./animalButtons.html');
-}();
-
 $(document).ready(function() {
-
-
-
-    $('#previous').on('click', function () {
-        window.history.back();
-    });
     $('.animal').on('click', function () {
         lastAnimalClicked = $(this).attr('id');
         console.log('lastAnimalClicked: ' + lastAnimalClicked);
     });
     $('#location').on('click', curLocation);
     $(".button-collapse").sideNav();
-    $(document).ready(function () {
-        $('.collapsible').collapsible();
-    });
+    $('.collapsible').collapsible();
 
 });
 
